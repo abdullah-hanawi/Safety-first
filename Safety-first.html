@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety First | مصاعد المقاولات والمشاريع الصناعية</title>
+    <style>
+        /* --- الألوان والهوية البصرية --- */
+        :root {
+            --primary-burgundy: #6b151e; /* النبيتي الأساسي */
+            --dark-burgundy: #4a0d13;    /* نبيتي داكن */
+            --cream-bg: #fdfbf7;         /* اللون السكري للخلفية */
+            --white: #ffffff;
+            --text-dark: #2b2b2b;
+            --text-light: #666666;
+            --transition: all 0.3s ease;
+        }
+
+        /* --- التنسيقات العامة --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--cream-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- الهيدر وشريط التنقل --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-burgundy);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-burgundy);
+        }
+
+        .btn-header {
+            background-color: var(--primary-burgundy);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .btn-header:hover {
+            background-color: var(--dark-burgundy);
+        }
+
+        /* --- القسم الرئيسي (Hero Section) --- */
+        .hero {
+            background: linear-gradient(135deg, rgba(107, 21, 30, 0.9) 0%, rgba(74, 13, 19, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1200') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #f0e6e6;
+        }
+
+        .btn-hero {
+            background-color: var(--cream-bg);
+            color: var(--primary-burgundy);
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-hero:hover {
+            background-color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* --- قسم الميزة التنافسية (قطع الغيار والاستيراد) --- */
+        .features {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: var(--primary-burgundy);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 3px;
+            background-color: var(--primary-burgundy);
+            margin: 10px auto 0;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            font-size: 18px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--cream-bg);
+            padding: 40px 30px;
+            border-radius: 8px;
+            border-top: 5px solid var(--primary-burgundy);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            color: var(--primary-burgundy);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        /* --- قسم شركاء النجاح (المستهدفين) --- */
+        .targets {
+            padding: 80px 0;
+        }
+
+        .targets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .target-card {
+            background: var(--white);
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .target-card:hover {
+            box-shadow: 0 10px 25px rgba(107, 21, 30, 0.1);
+        }
+
+        .target-info {
+            padding: 25px;
+        }
+
+        .target-info h3 {
+            color: var(--primary-burgundy);
+            margin-bottom: 10px;
+        }
+
+        /* --- قسم طلب عرض السعر (الفورم المطليوب) --- */
+        .contact-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .form-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--cream-bg);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-right: 6px solid var(--primary-burgundy);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: var(--white);
+            color: var(--text-dark);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: var(--primary-burgundy);
+            box-shadow: 0 0 5px rgba(107, 21, 30, 0.2);
+        }
+
+        .btn-submit {
+            background-color: var(--primary-burgundy);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover {
+            background-color: var(--dark-burgundy);
+        }
+
+        /* رسالة نجاح الإرسال */
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* --- الفوتر --- */
+        footer {
+            background-color: var(--dark-burgundy);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <span>🛡️ Safety First</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#features">مميزاتنا</a></li>
+                <li><a href="#targets">شركاؤنا</a></li>
+                <li><a href="#quote-form">طلب عرض سعر</a></li>
+            </ul>
+            <a href="#quote-form" class="btn-header">اتصل بنا</a>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>تكنولوجيا المصاعد الآمنة للمشاريع الكبرى</h1>
+            <p>في Safety First، نوفر للمقاولين وشركات التطوير العقاري حلول تركيب مصاعد متكاملة ومطابقة لأعلى مواصفات الأمان العالمية، مع تحسين ذكي للتكاليف الإنشائية.</p>
+            <a href="#quote-form" class="btn-hero">اطلب عرض سعر لمشروعك الآن</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">لماذا يختارنا المقاولون؟</h2>
+            <p class="section-subtitle">نحن لا نركب مصاعد فقط، بل نقدم معادلة اقتصادية وهندسية تضمن نجاح مشروعك</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚢</div>
+                    <h3>قطع غيار استيراد مباشر</h3>
+                    <p>نقوم باستيراد قطع الغيار والمكونات الأصلية مباشرة من المصانع العالمية، مما يقلل التكلفة الإجمالية للمشروع بنسبة تصل إلى 30% لصالح المطور العقاري.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>سرعة التنفيذ والتسليم</h3>
+                    <p>نلتزم بالجداول الزمنية الصارمة لشركات المقاولات لضمان عدم تعطل تسليم الأبراج الإدارية أو المجمعات السكنية.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛠️</div>
+                    <h3>صيانة معتمدة ممتدة</h3>
+                    <p>عقود صيانة دورية مصممة خصيصاً للشركات والمصانع لضمان استمرارية العمل دون أي أعطال مفاجئة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="targets" class="targets">
+        <div class="container">
+            <h2 class="section-title">حلول مخصصة لكل قطاع</h2>
+            <p class="section-subtitle">خبرتنا ممتدة في خدمة المنشآت الحيوية والمشاريع العملاقة</p>
+            
+            <div class="targets-grid">
+                <div class="target-card">
+                    <div class="target-info">
+                        <h3>🏢 المقاولات والعمارات السكنية</h3>
+                        <p>توفير مصاعد ركاب سريعة واقتصادية، مجهزة بأنظمة إنقاذ أتوماتيكية عند انقطاع التيار الكهربائي لتناسب العقارات الحديثة.</p>
+                    </div>
+                </div>
+                <div class="target-card">
+                    <div class="target-info">
+                        <h3>🏡 الكمباوندات والمجمعات</h3>
+                        <p>تصاميم فاخرة وتكنولوجيا متطورة (Smart Elevators) تتماشى مع الطراز المعماري الحديث والراقي للمجمعات المغلقة.</p>
+                    </div>
+                </div>
+                <div class="target-card">
+                    <div class="target-info">
+                        <h3>🏭 الشركات والمنشآت الصناعية</h3>
+                        <p>مصاعد بضائع وهيدروليك شديدة التحمل للأوزان الكبيرة، مصممة خصيصاً لبيئات العمل الشاقة والمصانع.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quote-form" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">طلب دراسة مشروع وعرض سعر</h2>
+            <p class="section-subtitle">املاً البيانات أدناه وسيتواصل معك مهندسو المبيعات خلال 24 ساعة فقط</p>
+            
+            <div class="form-wrapper">
+                <div id="successMessage" class="success-message">
+                    شكرًا لك! تم استلام بيانات مشروعك بنجاح. سيتصل بك فريق هندسة المبيعات في Safety First قريباً.
+                </div>
+                
+                <form id="elevatorForm">
+                    <div class="form-group">
+                        <label for="fullName">الاسم بالكامل:</label>
+                        <input type="text" id="fullName" required placeholder="أدخل اسمك أو اسم المسؤول عن التعاقد">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phoneNumber">رقم الهاتف:</label>
+                        <input type="tel" id="phoneNumber" required placeholder="مثال: 01xxxxxxxxx">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="buildingType">نوع المبنى / المشروع:</label>
+                        <select id="buildingType" required>
+                            <option value="" disabled selected>اختر نوع المبنى</option>
+                            <option value="عمارة سكنية">عمارة سكنية</option>
+                            <option value="كمباوند">كمباوند سني / سياحي</option>
+                            <option value="شركة / منشأة صناعية">شركة / منشأة صناعية</option>
+                            <option value="أخرى">أخرى</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">وصف المشروع والمتطلبات (عدد المصاعد، الحمولة المتوقعة، إلخ):</label>
+                        <textarea id="description" rows="5" required placeholder="برجاء كتابة تفاصيل تقريبية لمساعدتنا في تقديم عرض سعر دقيق..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">إرسال طلب عرض السعر</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 جميع الحقوق محفوظة لشركة Safety First لتركيبات وصيانة المصاعد.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('elevatorForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // منع إعادة تحميل الصفحة الافتراضي
+            
+            // جلب القيم المدخلة
+            const name = document.getElementById('fullName').value;
+            const phone = document.getElementById('phoneNumber').value;
+            const type = document.getElementById('buildingType').value;
+            const desc = document.getElementById('description').value;
+
+            // هنا يمكنك مستقبلاً ربط البيانات بـ Firebase أو إرسالها عبر إيميل
+            console.log("تم استقبال طلب من:", { name, phone, type, desc });
+
+            // إظهار رسالة النجاح للمستخدم
+            const successAlert = document.getElementById('successMessage');
+            successAlert.style.display = 'block';
+
+            // إعادة تهيئة الحقول (مسح البيانات بعد الإرسال)
+            document.getElementById('elevatorForm').reset();
+
+            // التمرير لأعلى الفورم لرؤية الرسالة بوضوح
+            successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    </script>
+</body>
+</html>
