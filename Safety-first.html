@@ -7,7 +7,7 @@
     <style>
         /* --- الألوان والهوية البصرية --- */
         :root {
-            --primary-burgundy: #6b151e; /* النبيتي الأساسي */
+            --primary-burgundy: #6b151e; /* النبيتي الفخم */
             --dark-burgundy: #4a0d13;    /* نبيتي داكن */
             --cream-bg: #fdfbf7;         /* اللون السكري للخلفية */
             --white: #ffffff;
@@ -16,7 +16,7 @@
             --transition: all 0.3s ease;
         }
 
-        /* --- التنسيقات العامة --- */
+        /* --- التنسيقات العامة والتحكم بالمرونة --- */
         * {
             margin: 0;
             padding: 0;
@@ -28,15 +28,17 @@
             background-color: var(--cream-bg);
             color: var(--text-dark);
             line-height: 1.6;
+            overflow-x: hidden; /* يمنع ظهور شريط التمرير الأفقي المزعج في الهواتف */
         }
 
         .container {
-            width: 85%;
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 15px;
         }
 
-        /* --- الهيدر وشريط التنقل --- */
+        /* --- الهيدر وشريط التنقل (متجاوب) --- */
         header {
             background-color: var(--white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -50,28 +52,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
             color: var(--primary-burgundy);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            white-space: nowrap;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 20px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 600;
+            font-size: 15px;
             transition: var(--transition);
         }
 
@@ -82,11 +83,13 @@
         .btn-header {
             background-color: var(--primary-burgundy);
             color: var(--white);
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 14px;
             transition: var(--transition);
+            white-space: nowrap;
         }
 
         .btn-header:hover {
@@ -95,25 +98,30 @@
 
         /* --- القسم الرئيسي (Hero Section) --- */
         .hero {
-            background: linear-gradient(135deg, rgba(107, 21, 30, 0.9) 0%, rgba(74, 13, 19, 0.95) 100%), 
+            background: linear-gradient(135deg, rgba(107, 21, 30, 0.92) 0%, rgba(74, 13, 19, 0.96) 100%), 
                         url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1200') no-repeat center center/cover;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             color: var(--white);
             text-align: center;
-            padding-top: 80px;
+            padding: 120px 0 60px 0;
+        }
+
+        .hero-content {
+            width: 100%;
         }
 
         .hero-content h1 {
-            font-size: 48px;
+            font-size: 2.5rem; /* حجم خط مرن يعتمد على الشاشة */
             margin-bottom: 20px;
             font-weight: 800;
+            line-height: 1.3;
         }
 
         .hero-content p {
-            font-size: 20px;
-            margin-bottom: 30px;
+            font-size: 1.1rem;
+            margin-bottom: 35px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
@@ -123,13 +131,14 @@
         .btn-hero {
             background-color: var(--cream-bg);
             color: var(--primary-burgundy);
-            padding: 15px 35px;
+            padding: 14px 30px;
             border-radius: 5px;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             transition: var(--transition);
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: inline-block;
         }
 
         .btn-hero:hover {
@@ -137,45 +146,45 @@
             transform: translateY(-3px);
         }
 
-        /* --- قسم الميزة التنافسية (قطع الغيار والاستيراد) --- */
+        /* --- قسم المميزات (قطع الغيار والاستيراد) --- */
         .features {
-            padding: 80px 0;
+            padding: 60px 0;
             background-color: var(--white);
         }
 
         .section-title {
             text-align: center;
-            font-size: 32px;
+            font-size: 28px;
             color: var(--primary-burgundy);
-            margin-bottom: 15px;
-            position: relative;
+            margin-bottom: 10px;
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 70px;
+            width: 60px;
             height: 3px;
             background-color: var(--primary-burgundy);
-            margin: 10px auto 0;
+            margin: 8px auto 0;
         }
 
         .section-subtitle {
             text-align: center;
             color: var(--text-light);
-            margin-bottom: 50px;
-            font-size: 18px;
+            margin-bottom: 40px;
+            font-size: 16px;
         }
 
+        /* استخدام شبكة مرنة تتكيف ذاتياً مع أحجام الشاشات */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
         .feature-card {
             background-color: var(--cream-bg);
-            padding: 40px 30px;
+            padding: 30px 20px;
             border-radius: 8px;
             border-top: 5px solid var(--primary-burgundy);
             transition: var(--transition);
@@ -188,19 +197,19 @@
         }
 
         .feature-icon {
-            font-size: 40px;
+            font-size: 36px;
             color: var(--primary-burgundy);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .feature-card h3 {
-            margin-bottom: 15px;
-            font-size: 22px;
+            margin-bottom: 12px;
+            font-size: 20px;
         }
 
         /* --- قسم شركاء النجاح (المستهدفين) --- */
         .targets {
-            padding: 80px 0;
+            padding: 60px 0;
         }
 
         .targets-grid {
@@ -213,12 +222,11 @@
             background: var(--white);
             border: 1px solid #eee;
             border-radius: 8px;
-            overflow: hidden;
             transition: var(--transition);
         }
 
         .target-card:hover {
-            box-shadow: 0 10px 25px rgba(107, 21, 30, 0.1);
+            box-shadow: 0 10px 25px rgba(107, 21, 30, 0.08);
         }
 
         .target-info {
@@ -228,19 +236,20 @@
         .target-info h3 {
             color: var(--primary-burgundy);
             margin-bottom: 10px;
+            font-size: 18px;
         }
 
-        /* --- قسم طلب عرض السعر (الفورم المطليوب) --- */
+        /* --- قسم الاستمارة (طلب عرض السعر) --- */
         .contact-section {
-            padding: 80px 0;
+            padding: 60px 0;
             background-color: var(--white);
         }
 
         .form-wrapper {
-            max-width: 700px;
+            max-width: 650px;
             margin: 0 auto;
             background-color: var(--cream-bg);
-            padding: 40px;
+            padding: 30px 20px;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             border-right: 6px solid var(--primary-burgundy);
@@ -255,16 +264,17 @@
             margin-bottom: 8px;
             font-weight: 600;
             color: var(--text-dark);
+            font-size: 15px;
         }
 
         .form-group input, 
         .form-group select, 
         .form-group textarea {
             width: 100%;
-            padding: 12px 15px;
+            padding: 12px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 15px;
             background-color: var(--white);
             color: var(--text-dark);
             outline: none;
@@ -282,8 +292,8 @@
             background-color: var(--primary-burgundy);
             color: var(--white);
             border: none;
-            padding: 15px 30px;
-            font-size: 18px;
+            padding: 14px;
+            font-size: 16px;
             font-weight: bold;
             border-radius: 5px;
             cursor: pointer;
@@ -295,7 +305,6 @@
             background-color: var(--dark-burgundy);
         }
 
-        /* رسالة نجاح الإرسال */
         .success-message {
             display: none;
             background-color: #d4edda;
@@ -305,6 +314,7 @@
             text-align: center;
             margin-bottom: 20px;
             font-weight: bold;
+            font-size: 15px;
         }
 
         /* --- الفوتر --- */
@@ -312,28 +322,69 @@
             background-color: var(--dark-burgundy);
             color: var(--white);
             text-align: center;
-            padding: 30px 0;
-            font-size: 14px;
+            padding: 25px 0;
+            font-size: 13px;
+        }
+
+        /* =======================================================
+           شاشات الهواتف والأجهزة اللوحية (Media Queries الـحل السحري)
+           ======================================================= */
+        @media (max-width: 768px) {
+            /* تعديل الهيدر ليناسب شاشة الهاتف الصغيرة */
+            .navbar {
+                flex-direction: column; /* تحويل العناصر لتصبح فوق بعضها بسلاسة */
+                gap: 15px;
+                padding: 10px 0;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap; /* إذا كانت الروابط كثيرة تنزل لسطر جديد تلقائياً */
+                justify-content: center;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            /* تصغير حجم خط العنوان الرئيسي في الهاتف */
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content p {
+                font-size: 0.95rem;
+            }
+
+            /* تقليل الحشو والمسافات لتناسب شاشة الموبايل الصغير */
+            .hero {
+                padding-top: 160px; /* لإعطاء مساحة للهيدر المتغير */
+            }
+
+            .form-wrapper {
+                padding: 20px 15px;
+                border-right: none;
+                border-top: 6px solid var(--primary-burgundy); /* تغيير اتجاه شريط الديكور ليصبح علوياً في الهاتف */
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- شريط التنقل -->
     <header>
         <div class="container navbar">
-            <div class="logo">
-                <span>🛡️ Safety First</span>
-            </div>
+            <div class="logo">🛡️ Safety First</div>
             <ul class="nav-links">
                 <li><a href="#home">الرئيسية</a></li>
                 <li><a href="#features">مميزاتنا</a></li>
                 <li><a href="#targets">شركاؤنا</a></li>
-                <li><a href="#quote-form">طلب عرض سعر</a></li>
             </ul>
-            <a href="#quote-form" class="btn-header">اتصل بنا</a>
+            <a href="#quote-form" class="btn-header">طلب سعر</a>
         </div>
     </header>
 
+    <!-- القسم الرئيسي -->
     <section id="home" class="hero">
         <div class="container hero-content">
             <h1>تكنولوجيا المصاعد الآمنة للمشاريع الكبرى</h1>
@@ -342,6 +393,7 @@
         </div>
     </section>
 
+    <!-- قسم المميزات وتخفيض التكلفة -->
     <section id="features" class="features">
         <div class="container">
             <h2 class="section-title">لماذا يختارنا المقاولون؟</h2>
@@ -356,7 +408,7 @@
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
                     <h3>سرعة التنفيذ والتسليم</h3>
-                    <p>نلتزم بالجداول الزمنية الصارمة لشركات المقاولات لضمان عدم تعطل تسليم الأبراج الإدارية أو المجمعات السكنية.</p>
+                    <p>نلتزم بالجداول الزمنية الصارمة لشركات المقاولات لضمان عدم تعطل تسليم الأبراء الإدارية أو المجمعات السكنية.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🛠️</div>
@@ -367,6 +419,7 @@
         </div>
     </section>
 
+    <!-- قسم القطاعات المستهدفة -->
     <section id="targets" class="targets">
         <div class="container">
             <h2 class="section-title">حلول مخصصة لكل قطاع</h2>
@@ -395,6 +448,7 @@
         </div>
     </section>
 
+    <!-- قسم الاستمارة (طلب عرض سعر) -->
     <section id="quote-form" class="contact-section">
         <div class="container">
             <h2 class="section-title">طلب دراسة مشروع وعرض سعر</h2>
@@ -421,14 +475,14 @@
                         <select id="buildingType" required>
                             <option value="" disabled selected>اختر نوع المبنى</option>
                             <option value="عمارة سكنية">عمارة سكنية</option>
-                            <option value="كمباوند">كمباوند سني / سياحي</option>
+                            <option value="كمباوند">كمباوند سكني / سياحي</option>
                             <option value="شركة / منشأة صناعية">شركة / منشأة صناعية</option>
                             <option value="أخرى">أخرى</option>
                         </select>
                     </div>
                     
                     <div class="form-group">
-                        <label for="description">وصف المشروع والمتطلبات (عدد المصاعد، الحمولة المتوقعة، إلخ):</label>
+                        <label for="description">وصف المشروع والمتطلبات (عدد المصاعد، الحمولة، إلخ):</label>
                         <textarea id="description" rows="5" required placeholder="برجاء كتابة تفاصيل تقريبية لمساعدتنا في تقديم عرض سعر دقيق..."></textarea>
                     </div>
                     
@@ -438,33 +492,29 @@
         </div>
     </section>
 
+    <!-- الفوتر -->
     <footer>
         <div class="container">
             <p>&copy; 2026 جميع الحقوق محفوظة لشركة Safety First لتركيبات وصيانة المصاعد.</p>
         </div>
     </footer>
 
+    <!-- سكربت تفاعلي لمعالجة البيانات وتأكيد الإرسال -->
     <script>
         document.getElementById('elevatorForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // منع إعادة تحميل الصفحة الافتراضي
+            e.preventDefault(); 
             
-            // جلب القيم المدخلة
             const name = document.getElementById('fullName').value;
             const phone = document.getElementById('phoneNumber').value;
             const type = document.getElementById('buildingType').value;
             const desc = document.getElementById('description').value;
 
-            // هنا يمكنك مستقبلاً ربط البيانات بـ Firebase أو إرسالها عبر إيميل
             console.log("تم استقبال طلب من:", { name, phone, type, desc });
 
-            // إظهار رسالة النجاح للمستخدم
             const successAlert = document.getElementById('successMessage');
             successAlert.style.display = 'block';
 
-            // إعادة تهيئة الحقول (مسح البيانات بعد الإرسال)
             document.getElementById('elevatorForm').reset();
-
-            // التمرير لأعلى الفورم لرؤية الرسالة بوضوح
             successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
     </script>
