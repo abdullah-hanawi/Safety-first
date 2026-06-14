@@ -438,3 +438,174 @@
     </style>
 </head>
 <body>
+
+    <header>
+        <div class="container navbar">
+            <a href="#home" class="logo">🛡️ Safety First</a>
+            
+            <button class="menu-toggle" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav-menu" id="nav-menu-container">
+                <ul class="nav-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#features">مميزاتنا</a></li>
+                    <li><a href="#targets">شركاؤنا</a></li>
+                </ul>
+                <a href="#quote-form" class="btn-header">طلب عرض سعر</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>تكنولوجيا المصاعد الآمنة للمشاريع الكبرى</h1>
+            <p>في Safety First، نوفر للمقاولين وشركات التطوير العقاري حلول تركيب مصاعد متكاملة ومطابقة لأعلى مواصفات الأمان العالمية، مع تحسين ذكي للتكاليف الإنشائية.</p>
+            <a href="#quote-form" class="btn-hero">اطلب عرض سعر لمشروعك الآن</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">لماذا يختارنا المقاولون؟</h2>
+            <p class="section-subtitle">نحن لا نركب مصاعد فقط، بل نقدم معادلة اقتصادية وهندسية تضمن نجاح مشروعك</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚢</div>
+                    <h3>قطع غيار استيراد مباشر</h3>
+                    <p>نقوم باستيراد قطع الغيار والمكونات الأصلية مباشرة من المصانع العالمية، مما يقلل التكلفة الإجمالية للمشروع بنسبة تصل إلى 30% لصالح المطور العقاري.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>سرعة التنفيذ والتسليم</h3>
+                    <p>نلتزم بالجداول الزمنية الصارمة لشركات المقاولات لضمان عدم تعطل تسليم الأبراج الإدارية أو المجمعات السكنية.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛠️</div>
+                    <h3>صيانة معتمدة ممتدة</h3>
+                    <p>عقود صيانة دورية مصممة خصيصاً للشركات والمصانع لضمان استمرارية العمل دون أي أعطال مفاجئة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="targets" class="targets">
+        <div class="container">
+            <h2 class="section-title">حلول مخصصة لكل قطاع</h2>
+            <p class="section-subtitle">خبرتنا ممتدة في خدمة المنشآت الحيوية والمشاريع العملاقة</p>
+            
+            <div class="targets-grid">
+                <div class="target-card">
+                    <div class="target-info">
+                        <h3>🏢 المقاولات والعمارات السكنية</h3>
+                        <p>توفير مصاعد ركاب سريعة واقتصادية، مجهزة بأنظمة إنقاذ أتوماتيكية عند انقطاع التيار الكهربائي لتناسب العقارات الحديثة.</p>
+                    </div>
+                </div>
+                <div class="target-card">
+                    <div class="target-info">
+                        <h3>🏡 الكمباوندات والمجمعات</h3>
+                        <p>تصاميم فاخرة وتكنولوجيا متطورة (Smart Elevators) تتماشى مع الطراز المعماري الحديث والراقي للمجمعات المغلقة.</p>
+                    </div>
+                </div>
+                <div class="target-card">
+                    <div class="target-info">
+                        <h3>🏭 الشركات والمنشآت الصناعية</h3>
+                        <p>مصاعد بضائع وهيدروليك شديدة التحمل للأوزان الكبيرة، مصممة خصيصاً لبيئات العمل الشاقة والمصانع.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quote-form" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">طلب دراسة مشروع وعرض سعر</h2>
+            <p class="section-subtitle">املاً البيانات أدناه وسيتواصل معك مهندسو المبيعات خلال 24 ساعة فقط</p>
+            
+            <div class="form-wrapper">
+                <div id="successMessage" class="success-message">
+                    شكرًا لك! تم استلام بيانات مشروعك بنجاح. سيتصل بك فريق هندسة المبيعات في Safety First قريباً.
+                </div>
+                
+                <form id="elevatorForm">
+                    <div class="form-group">
+                        <label for="fullName">الاسم بالكامل:</label>
+                        <input type="text" id="fullName" required placeholder="أدخل اسمك أو اسم المسؤول عن التعاقد">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phoneNumber">رقم الهاتف:</label>
+                        <input type="tel" id="phoneNumber" required placeholder="مثال: 01xxxxxxxxx">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="buildingType">نوع المبنى / المشروع:</label>
+                        <select id="buildingType" required>
+                            <option value="" disabled selected>اختر نوع المبنى</option>
+                            <option value="عمارة سكنية">عمارة سكنية</option>
+                            <option value="كمباوند">كمباوند سكني / سياحي</option>
+                            <option value="شركة / منشأة صناعية">شركة / منشأة صناعية</option>
+                            <option value="أخرى">أخرى</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">وصف المشروع والمتطلبات (عدد المصاعد، الحمولة، إلخ):</label>
+                        <textarea id="description" rows="5" required placeholder="برجاء كتابة تفاصيل تقريبية لمساعدتنا في تقديم عرض سعر دقيق..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">إرسال طلب عرض السعر</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 جميع الحقوق محفوظة لشركة Safety First لتركيبات وصيانة المصاعد.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu-container');
+        const navLinks = document.querySelectorAll('.nav-links a, .btn-header');
+
+        // 1. عند الضغط على زر الهامبرغر (افتح / أغلق القائمة)
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // 2. إغلاق القائمة تلقائياً عند الضغط على أي رابط (للتنقل السلس داخل الصفحة)
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // 3. معالجة بيانات الفورم
+        document.getElementById('elevatorForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            const name = document.getElementById('fullName').value;
+            const phone = document.getElementById('phoneNumber').value;
+            const type = document.getElementById('buildingType').value;
+            const desc = document.getElementById('description').value;
+
+            console.log("تم استقبال طلب من:", { name, phone, type, desc });
+
+            const successAlert = document.getElementById('successMessage');
+            successAlert.style.display = 'block';
+
+            document.getElementById('elevatorForm').reset();
+            successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    </script>
+</body>
+</html>
